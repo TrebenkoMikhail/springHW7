@@ -7,7 +7,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/app/products")
-public abstract class ProductController implements ProductRepository{
+public abstract class ProductController extends Product implements ProductRepository{
+
     @Autowired
     ProductRepository productRepository;
 
