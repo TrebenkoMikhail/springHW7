@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>, List<Product> {
+
     @Query(value = "select product from products where id = :id")
     Long getProductById(Long id);
 
@@ -18,4 +19,10 @@ public interface ProductRepository extends JpaRepository<Product, Long>, List<Pr
     List<Product> addProduct(String title);
     @Query(value = "delete title from products where title= :title ")
     List<Product> delProduct(Long id);
+    @Query(value = "select * from products ordered by price ASC")
+    String sortByMinPrice(int price);
+    @Query(value = "select * from products ordered by price Desc")
+    String sortByMaxPrice(int price);
+    @Query(value = "select * from products ordered by avg(price)")
+    String sortByMinMaxPrice(int price);
 }
