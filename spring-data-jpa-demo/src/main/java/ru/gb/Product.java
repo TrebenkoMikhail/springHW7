@@ -17,4 +17,17 @@ public class Product {
 
     @Column(name = "price")
     private int price;
+
+    public Product() {  }
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+    @Column(name = "secret_key")
+    private String secretKey;
 }
